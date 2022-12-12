@@ -1,0 +1,21 @@
+{
+  "name": "assign1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "nodemon index.js"
+  },
+  "author": "batul",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^3.2.4",
+    "csv-parser": "^3.0.0",
+    "csvtojson": "^2.0.10",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "lodash": "^4.17.21",
+    "nodemon": "^2.0.20"
+  }
+}
