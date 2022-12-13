@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
+const fs = require('fs')
 const csv = require('csvtojson')
+const converter = require('json-2-csv')
 let lodash = require("lodash");
 
 var authors = [];
@@ -68,6 +70,24 @@ app.get('/sortbytitle', async (request, response) => {
     });
     
 })
+
+// Add a book and a magazine to the data structure of your software and export it to a new CSV file.
+
+app.get('/importcsv', async (request, response) => {
+
+    csv().fromFile("./data/magazines.csv").fromFile("./data/books.csv")
+    .then((data)=>{
+        converter.json2csv(data, (err, csv) => {
+            if (err) {
+              throw err
+            }
+            fs.writeFileSync('books_magazines.csv', csv)
+        })
+        response.send("done importing");
+    });
+    
+})
+
 
 const PORT = 4000;
 app.listen(PORT);
