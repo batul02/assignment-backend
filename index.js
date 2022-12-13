@@ -4,7 +4,7 @@ const csv = require('csvtojson')
 let lodash = require("lodash");
 
 var authors = [];
-csv().fromFile("./data/authors.csv")
+csv().fromFile(`./data/authors.csv`)
 .then((data)=>{
     authors = data;
 })
